@@ -2,8 +2,8 @@
 export default {
     content: [
         "./resources/views/welcome.blade.php",
-        // "./resources/js/app.js",
-        // "./resources/css/app.css",
+        "./resources/js/app.js",
+        "./resources/css/app.css",
     ],
     theme: {
         extend: {},
