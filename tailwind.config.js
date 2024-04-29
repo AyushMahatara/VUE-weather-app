@@ -2,11 +2,16 @@
 export default {
     content: [
         "./resources/views/welcome.blade.php",
-        // "./resources/js/app.js",
-        // "./resources/css/app.css",
+        "./resources/js/app.js",
+        "./resources/css/app.css",
+        "./resources/js/components/ExampleComponent.vue",
     ],
     theme: {
-        extend: {},
+        extend: {
+            spacing: {
+                128: "32rem",
+            },
+        },
     },
     plugins: [],
 };

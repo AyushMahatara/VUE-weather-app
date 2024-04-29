@@ -1,23 +1,21 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
+    <div class="text-white mb-8">
+        <div class="places-input text-gray-800">
+            <input type="text" class="w-full" />
+        </div>
+        <div class="bg-gray-900 shadow-lg mt-4">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
+            veniam minima quidem quaerat ducimus quam perferendis fuga ut
+            corporis reiciendis! Corporis magnam quasi consequatur incidunt fuga
+            ullam harum autem nihil.
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+export default {
+    mounted() {
+        console.log("Component mounted.");
+    },
+};
 </script>
