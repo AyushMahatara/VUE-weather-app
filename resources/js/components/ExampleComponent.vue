@@ -3,11 +3,20 @@
         <div class="places-input text-gray-800">
             <input type="text" class="w-full" />
         </div>
-        <div class="bg-gray-900 shadow-lg mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            veniam minima quidem quaerat ducimus quam perferendis fuga ut
-            corporis reiciendis! Corporis magnam quasi consequatur incidunt fuga
-            ullam harum autem nihil.
+        <div
+            class="weather-container font-sans w-128 max-w-lg overflow-hidden bg-gray-900 shadow-lg mt-4"
+        >
+            <div
+                class="current-weather flex items-center justify-between px-6 py-8"
+            >
+                <div class="flex items-center">
+                    <div>
+                        <div>8</div>
+                        <div>Weather is good</div>
+                    </div>
+                </div>
+                <div>One</div>
+            </div>
         </div>
     </div>
 </template>
