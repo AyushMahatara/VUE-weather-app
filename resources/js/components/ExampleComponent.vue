@@ -11,9 +11,12 @@
             >
                 <div class="flex items-center">
                     <div>
-                        <div>8</div>
+                        <div class="text-6xl font-semibold">8° C</div>
                         <div>Weather is good</div>
                     </div>
+                </div>
+                <div class="mx-5">
+                    <div></div>
                 </div>
                 <div>One</div>
             </div>
