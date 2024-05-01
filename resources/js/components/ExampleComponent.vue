@@ -44,7 +44,19 @@
 <script>
 export default {
     mounted() {
-        console.log("Component mounted.");
+        this.fetchDate();
+    },
+    methods: {
+        fetchDate() {
+            fetch("/api/weather")
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data);
+                })
+                .catch((error) => {
+                    console.error("Error fetching weather data:", error);
+                });
+        },
     },
 };
 </script>
