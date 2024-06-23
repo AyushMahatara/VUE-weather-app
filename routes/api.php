@@ -8,9 +8,13 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/weather', function (Request $request) {
-    dd('asd');
-    $response = Http::get("https://api.openweathermap.org/data/2.5/weather?lat=26.67135301&lon=87.66763318&appid=dfd2e5251e1077b63b4c4e3b9e861c8c");
-    dd($response);
+Route::get('/weather', function () {
+    $apiKey = config('services.openweather.key');
+    $lat = request('lat');
+    $lng = request('lng');
+    // $lat = 26.67135301;
+    // $lng = 87.66763318;
+    // $apiKey = 'dfd2e5251e1077b63b4c4e3b9e861c8c';
+    $response = Http::get("https://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lng&appid=$apiKey&units=metric");
     return $response->json();
 });

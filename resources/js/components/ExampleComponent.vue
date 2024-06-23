@@ -11,15 +11,28 @@
             >
                 <div class="flex items-center">
                     <div>
-                        <div class="text-6xl font-semibold">8° C</div>
-                        <div>Weather is good</div>
+                        <div class="text-6xl font-semibold">
+                            {{ currentTemperature.actual }}° C
+                        </div>
+                        <div>Feels like {{ currentTemperature.feels }}</div>
                     </div>
                     <div class="mx-5">
-                        <div class="font-semibold">Cloudy</div>
-                        <div>Canada</div>
+                        <div class="font-semibold">
+                            {{ currentTemperature.summary }}
+                        </div>
+                        <div>{{ location.name }}</div>
                     </div>
                 </div>
-                <div>Icon</div>
+                <div>
+                    <img
+                        :src="
+                            'https://openweathermap.org/img/wn/' +
+                            currentTemperature.icons +
+                            '@2x.png'
+                        "
+                        alt=""
+                    />
+                </div>
             </div>
 
             <div
@@ -46,12 +59,36 @@ export default {
     mounted() {
         this.fetchDate();
     },
+    data() {
+        return {
+            currentTemperature: {
+                actual: "",
+                feels: "",
+                summary: "",
+                icons: "",
+            },
+            location: {
+                name: "lalitpur",
+                lat: 26.67135301,
+                lng: 87.66763318,
+            },
+        };
+    },
+
     methods: {
         fetchDate() {
-            fetch("/api/weather")
+            fetch(
+                `/api/weather?lat=${this.location.lat}&lng=${this.location.lng}`
+            )
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data);
+                    // console.log(data.weather[0].description);
+                    this.currentTemperature.actual = data.main.temp;
+                    this.currentTemperature.feels = data.main.feels_like;
+                    this.currentTemperature.summary =
+                        data.weather[0].description;
+                    this.currentTemperature.icons = data.weather[0].icon;
                 })
                 .catch((error) => {
                     console.error("Error fetching weather data:", error);
